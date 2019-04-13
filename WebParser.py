@@ -40,6 +40,13 @@ class WebParser(object):
         return self._status
 
     def parser_normal_page(self, html, url):
+        """
+        解析所有页面，获取URL
+
+        :param html:
+        :param url:
+        :return:
+        """
         soup = BeautifulSoup(html, 'xml')
         for a_tag in soup.find_all('a'):
             href = a_tag.get('href')
@@ -53,6 +60,13 @@ class WebParser(object):
 
     @staticmethod
     def parser_phone_page(html, url):
+        """
+        解析数据页面，并返回对应数据
+
+        :param html:
+        :param url:
+        :return:
+        """
         data = {}
         m = re.search(r'http://detail\.zol\.com\.cn/cell_phone/index(\d+)\.shtml', url)
         if m is not None:
