@@ -64,7 +64,10 @@ class WebParser(object):
             price = soup.find('b', {'class': 'price-type'}).text
         else:
             price = price.text[1:]
-        data['price'] = price
+        if str(price).isnumeric():
+            data['price'] = price
+        else:
+            data['price'] = -1
         image_div = soup.find('div', {'class': 'small-pic'})
         data['image_url'] = image_div.img['src']
         ul = soup.find('ul', {'class': 'product-param-item pi-57 clearfix'})
@@ -75,7 +78,11 @@ class WebParser(object):
         data['front_camera'] = str(ps[3].get_text()).split('：')[1]
         data['battery'] = str(ps[4].get_text()).split('：')[1]
         data['p_cpu'] = str(ps[6].get_text()).split('：')[1]
-        data['ram'] = ps[7].get_text().split('：')[1].replace('GB', '').replace(' ', '')
+        ram = ps[7].get_text().split('：')[1].replace('GB', '').replace(' ', '')
+        if str(ram).isnumeric():
+            data['ram'] = ram
+        else:
+            data['ram'] = 0
         data['web_url'] = url
         print(data)
         return data

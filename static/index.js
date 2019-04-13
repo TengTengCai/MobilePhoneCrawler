@@ -38,6 +38,7 @@ $(function () {
           field: 'price',
           align: 'center',
           sortable: true,
+          formatter: format_price,
         }, {
           title: 'CPU',
           field: 'p_cpu',
@@ -91,7 +92,13 @@ $(function () {
     }
 
     function format_ram(value, row, index, field) {
-      return value + 'GB'
+        return value + 'GB'
+    }
+
+    function format_price(value, row, index, field) {
+        if (value === -1 || value === '-1') {
+            return '价格待定'
+        }
     }
 
     //请求服务数据时所传参数
