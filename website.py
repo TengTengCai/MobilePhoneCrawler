@@ -33,9 +33,8 @@ def get_data():
         'res': result,
         'total': total
     }
-    print(json.dumps(data))
     return jsonify(data)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
