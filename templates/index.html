@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>数据搜索</title>
+    <script src="/static/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/bootstrap-4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap-table/bootstrap-table.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/static/bootstrap-table/popper.min.js"></script>
+    <script src="/static/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    <script src="/static/bootstrap-table/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="/static/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+</head>
+<body>
+    <h1>数据搜索</h1>
+    <from id="find_data_from" action="" method="get">
+        <div class="form-group">
+            <label for="phone_name_input"></label>
+            <input style="width: 200px" type="text" class="form-control" id="phone_name_input" placeholder="输入手机名称～">
+        </div>
+        <input type="submit" class="btn btn-primary" id="find_button" value="Find"/>
+    </from>
+
+    <table
+        id="mytable">
+    </table>
+    <script src="/static/index.js"></script>
+</body>
+</html>
